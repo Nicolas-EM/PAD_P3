@@ -1,0 +1,8 @@
+{
+	"port": 8080,
+	"root": "~/public/",
+	"open": true, 
+	"ignore": "scss,my/templates", 
+	"file": "index.html", 
+	"mount": [["/components", "./node_modules"]] 
+}
