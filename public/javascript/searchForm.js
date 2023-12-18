@@ -46,7 +46,7 @@ class SearchForm extends React.Component {
                             imagesrc: bookInfo.imageLinks?.thumbnail || default_thumbnail_url,
                             title: bookInfo.title || 'No Title',
                             author: authorsString || 'Unknown Author',
-                            moreInfo: bookInfo.infoLink || '#',
+                            infoLink: bookInfo.infoLink || '#',
                         };
 
                         // Create a BookCard component and add it to the array

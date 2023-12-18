@@ -4,12 +4,11 @@ class BookCard extends React.Component {
 
         return e(
             'a',
-            { className: 'col', href: infoLink, style: {textDecoration: 'none'} },
+            { className: 'col', href: infoLink },
             e(
                 'div',
-                { className: 'card' },
-                e('img', { src: imagesrc, className: 'card-img-top', alt: 'Book Cover',
-                style: { maxHeight: '250px' } }),
+                { className: 'card h-100' },
+                e('img', { src: imagesrc, className: 'card-img-top', alt: 'Book Cover' }),
                 e(
                     'div',
                     { className: 'card-body' },
