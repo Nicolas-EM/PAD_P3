@@ -2,25 +2,13 @@
 
 const e = React.createElement;
 
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
+const navbarContainer = document.querySelector('#navbar');
+const navbar = ReactDOM.createRoot(navbarContainer);
+navbar.render(e(Navbar));
 
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
+const booksRow = document.querySelector('#booksRow');
+const booksRoot = ReactDOM.createRoot(booksRow);
 
-    return e(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
-  }
-}
-
-const domContainer = document.querySelector('#test');
-const root = ReactDOM.createRoot(domContainer);
-root.render(e(LikeButton));
+const searchContainer = document.querySelector('#search');
+const search = ReactDOM.createRoot(searchContainer);
+search.render(e(SearchForm));
