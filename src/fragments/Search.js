@@ -24,6 +24,7 @@ function Search() {
                     console.log(response);
 
                     if (response.data.totalItems === 0) {
+                        document.getElementById('booksRow').innerHTML = '';
                         document.getElementById('msg').innerHTML = "No results found."
                         document.getElementById('msgDiv').classList.remove("d-none");
                     } else {
@@ -55,7 +56,8 @@ function Search() {
                     }
                 })
                 .catch(function (error) {
-                    document.getElementById('msg').innerHTML = `${error}`
+                    document.getElementById('booksRow').innerHTML = '';
+                    document.getElementById('msg').innerHTML = `${error}`;
                     document.getElementById('msgDiv').classList.remove("d-none");
                 });
         }
