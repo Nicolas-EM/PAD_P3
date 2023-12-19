@@ -1,41 +1,70 @@
-# PWA - Google Books Client
+# Getting Started with Create React App
 
-## Info
-```
-npm run dev
-```
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Enunciado
+## Available Scripts
 
-### Buscador de libros
-La práctica consistirá implementar la aplicación que se desarrolló en la práctica 2 de
-Android, que actuaba de cliente del API de Google Books, para implementarla como una
-aplicación web progresiva (PWA).
+In the project directory, you can run:
 
-###  Tipo de aplicación
-La aplicación será una página web, programada como una (PWA). Ha de poder ser
-instalada en un dispositivo móvil y, opcionalmente (subirá nota), podrá funcionar sin
-conexión (es decir, en modo offline). Obligatoriamente tendrá que ser usable desde un
-ordenador a través de un navegador.
-Tampoco es necesario que la app almacene el estado, pero subirá nota si se almacenan
-datos con localStorage.
+### `npm start`
 
-### Alojamiento
-La práctica estará alojada en un servidor web haciendo uso de GitHub Pages.
-Detalle de funcionalidad
-La app se programará como una SPA (es decir, aplicación de una sola página) y, a
-diferencia de la práctica 2, para esta práctica solamente se buscarán libros (es decir, se
-elimina la parte relativa a la búsqueda de revistas).
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Implementación
-La práctica se implementará con React y la librería Axios para el acceso remoto.
-La página hará uso de hojas de estilo (CSS) aparte que establezcan la apariencia de la
-aplicación y de sus componentes.
-Todo el código de la aplicación se localizará en un repositorio público de GitHub, para
-poder comprobar el código presentado y los commits llevados a cabo para su
-implementación.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Auditoría
-La práctica deberá incluir una captura de pantalla de la auditoría con “Lighthouse”. Si
-hay algunos criterios PWA que no se cumplen (por ejemplo, de los iconos y el color de
-tema, se puede ignorar). Lo importante es que sea una PWA, y se vea en la auditoría.
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
