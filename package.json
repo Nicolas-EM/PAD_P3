@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx live-server --open=/public"
+    "dev": "npx workbox generateSW && npx live-server --open=/public"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "workbox-cli": "^7.0.0"
+  }
 }

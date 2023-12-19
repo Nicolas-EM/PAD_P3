@@ -1,5 +1,15 @@
 'use strict';
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./javascript/sw.js').then(reg => {
+            console.log('Todo bien:', reg)
+        }, function (err) {
+            console.log('Fallo:', err)
+        })
+    })
+}
+
 const e = React.createElement;
 
 const navbarContainer = document.querySelector('#navbar');
