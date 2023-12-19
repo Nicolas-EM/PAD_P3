@@ -6,6 +6,8 @@ function Search() {
     function searchBooks(event) {
         event.preventDefault();
 
+        document.getElementById('msgDiv').classList.add("d-none");
+
         const default_thumbnail_url = "https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=20&m=1216251206&s=170667a&w=0&h=A72dFkHkDdSfmT6iWl6eMN9t_JZmqGeMoAycP-LMAw4="
         const apiKey = "AIzaSyARjoFFYw_iyO-qYuNuXap8yWa2q9WCjqo";
 
@@ -20,38 +22,41 @@ function Search() {
                 .then(function (response) {
                     // handle success
                     console.log(response);
-                    const books = response.data.items;
-                    const bookComponents = [];
 
-                    for (let x in books) {
-                        const bookInfo = books[x].volumeInfo;
-                        const authors = bookInfo.authors || [];
-                    
-                        let authorsString = authors.join(', ');
-                    
-                        // Create book
-                        const book = {
-                            imagesrc: bookInfo.imageLinks?.thumbnail || default_thumbnail_url,
-                            title: bookInfo.title || 'No Title',
-                            author: authorsString || 'Unknown Author',
-                            infoLink: bookInfo.infoLink || '#',
-                        };
-                    
-                        // Create a BookCard component and add it to the array
-                        bookComponents.push(<BookCard key={x} book={book} />);
+                    if (response.data.totalItems === 0) {
+                        document.getElementById('msg').innerHTML = "No results found."
+                        document.getElementById('msgDiv').classList.remove("d-none");
+                    } else {
+                        const books = response.data.items;
+                        const bookComponents = [];
+
+                        for (let x in books) {
+                            const bookInfo = books[x].volumeInfo;
+                            const authors = bookInfo.authors || [];
+
+                            let authorsString = authors.join(', ');
+
+                            // Create book
+                            const book = {
+                                imagesrc: bookInfo.imageLinks?.thumbnail || default_thumbnail_url,
+                                title: bookInfo.title || 'No Title',
+                                author: authorsString || 'Unknown Author',
+                                infoLink: bookInfo.infoLink || '#',
+                            };
+
+                            // Create a BookCard component and add it to the array
+                            bookComponents.push(<BookCard key={x} book={book} />);
+                        }
+
+                        // Render the array of BookCard components in the "booksRow" div
+                        const booksRoot = document.getElementById('booksRow');
+                        const root = ReactDOM.createRoot(booksRoot);
+                        root.render(bookComponents);
                     }
-                    
-                    // Render the array of BookCard components in the "booksRow" div
-                    const booksRoot = document.getElementById('booksRow');
-                    const root = ReactDOM.createRoot(booksRoot);
-                    root.render(bookComponents);
                 })
                 .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-                .finally(function () {
-                    // always executed
+                    document.getElementById('msg').innerHTML = `${error}`
+                    document.getElementById('msgDiv').classList.remove("d-none");
                 });
         }
     };
@@ -59,7 +64,7 @@ function Search() {
     return (
         <form id="searchForm" onSubmit={searchBooks}>
             {/* Query text field */}
-            <div className="mb-3">  
+            <div className="mb-3">
                 <label htmlFor="searchQuery" className="form-label">Search:</label>
                 <input type="text" className="form-control" id="searchQuery" aria-describedby="searchHelp"></input>
                 <div id="searchHelp" className="form-text">

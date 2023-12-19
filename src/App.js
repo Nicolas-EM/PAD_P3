@@ -22,6 +22,11 @@ function App() {
 
       <div className="container my-3">
         <div id="booksRow" className="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center g-2"></div>
+        <div id='msgDiv' className='d-none row text-center'>
+          <div className='col'>
+            <h3 id='msg'>No results found.</h3>
+          </div>
+        </div>
       </div>
     </div>
   );

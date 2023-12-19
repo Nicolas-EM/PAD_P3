@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx workbox generateSW && react-scripts start",
+    "start": "npm run build && serve -s build",
     "build": "react-scripts build && workbox generateSW",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
