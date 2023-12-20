@@ -8,7 +8,6 @@ function Search() {
 
         document.getElementById('msgDiv').classList.add("d-none");
 
-        const default_thumbnail_url = "https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=20&m=1216251206&s=170667a&w=0&h=A72dFkHkDdSfmT6iWl6eMN9t_JZmqGeMoAycP-LMAw4="
         const apiKey = "AIzaSyARjoFFYw_iyO-qYuNuXap8yWa2q9WCjqo";
 
         const searchType = document.querySelector('input[name="searchType"]:checked').value;
@@ -16,13 +15,8 @@ function Search() {
         const searchQuery = `${searchType}${textInput}`;
 
         if (textInput) {
-            console.log("Searching:", searchQuery);
-
             axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${apiKey}&maxResults=40`)
                 .then(function (response) {
-                    // handle success
-                    console.log(response);
-
                     if (response.data.totalItems === 0) {
                         document.getElementById('booksRow').innerHTML = '';
                         document.getElementById('msg').innerHTML = "No results found."
@@ -30,23 +24,13 @@ function Search() {
                     } else {
                         const books = response.data.items;
                         const bookComponents = [];
+                        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
                         for (let x in books) {
                             const bookInfo = books[x].volumeInfo;
-                            const authors = bookInfo.authors || [];
-
-                            let authorsString = authors.join(', ');
-
-                            // Create book
-                            const book = {
-                                imagesrc: bookInfo.imageLinks?.thumbnail || default_thumbnail_url,
-                                title: bookInfo.title || 'No Title',
-                                author: authorsString || 'Unknown Author',
-                                infoLink: bookInfo.infoLink || '#',
-                            };
 
                             // Create a BookCard component and add it to the array
-                            bookComponents.push(<BookCard key={x} book={book} />);
+                            bookComponents.push(<BookCard key={x} book={bookInfo} existingFavorites={favorites} />);
                         }
 
                         // Render the array of BookCard components in the "booksRow" div
