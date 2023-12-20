@@ -58,7 +58,7 @@ function Book({ book, existingFavorites }) {
                 <div className="card-body">
                     <h6 className="card-subtitle mb-2 text-body-secondary">{(book.authors || []).join(', ') || 'Unknown Author'}</h6>
                     {book.infoLink &&
-                        <a  href={book.infoLink} target="_blank">More info</a>
+                        <a  href={book.infoLink} target="_blank" rel="noreferrer">More info</a>
                     }
                 </div>
                 <div class="card-footer text-body-secondary">
